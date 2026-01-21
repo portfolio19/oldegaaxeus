@@ -1032,6 +1032,25 @@
     opacity: 1;
     transform: translateY(0);
 }
+
+        .portfolio-btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 18px;
+    background-color: #0d6efd;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.portfolio-btn:hover {
+    background-color: #084298;
+    transform: translateY(-2px);
+}
+
     </style>
 
 
@@ -1309,7 +1328,7 @@
 </section>
 
 
-   <!-- Portfolio Section -->
+ <!-- Portfolio Section -->
 <section id="portfolio" class="portfolio">
     <div class="container">
         <h2 class="section-title">Mes projets récents</h2>
@@ -1317,6 +1336,7 @@
             Découvrez une sélection de mes réalisations illustrant mon expertise et ma créativité.
         </p>
         
+        <!-- Filtres -->
         <div class="portfolio-filter">
             <button class="filter-btn active" data-filter="all">Tous les projets</button>
             <button class="filter-btn" data-filter="web">Application web</button>
@@ -1325,7 +1345,9 @@
             <button class="filter-btn" data-filter="microfinance">Microfinance</button>
         </div>
         
+        <!-- Grille -->
         <div class="portfolio-grid">
+
             <!-- Projet 1 -->
             <div class="portfolio-item" data-category="web">
                 <div class="portfolio-img-container">
@@ -1339,14 +1361,17 @@
                     <p>
                         Application web permettant de gérer efficacement une institution scolaire en ligne.
                     </p>
+                    <a href="https://gestion.applischool.com/" target="_blank" class="portfolio-btn">
+                        Voir le projet
+                    </a>
                 </div>
             </div>
-            
+
             <!-- Projet 2 -->
             <div class="portfolio-item" data-category="design">
                 <div class="portfolio-img-container">
                     <a href="https://lafierteproduction.com/" target="_blank">
-                        <img src="img/produit_chimique.png" alt="Site de vente de produits chimiques" class="portfolio-img">
+                        <img src="img/produit_chimique.png" alt="Site e-commerce de produits chimiques" class="portfolio-img">
                     </a>
                 </div>
                 <div class="portfolio-info">
@@ -1355,9 +1380,12 @@
                     <p>
                         Site web dédié à la vente en ligne de produits chimiques professionnels.
                     </p>
+                    <a href="https://lafierteproduction.com/" target="_blank" class="portfolio-btn">
+                        Voir le projet
+                    </a>
                 </div>
             </div>
-            
+
             <!-- Projet 3 -->
             <div class="portfolio-item" data-category="ecommerce">
                 <div class="portfolio-img-container">
@@ -1371,6 +1399,9 @@
                     <p>
                         Plateforme e-commerce complète et sécurisée pour les achats en ligne.
                     </p>
+                    <a href="https://rodgastore.com/" target="_blank" class="portfolio-btn">
+                        Voir le projet
+                    </a>
                 </div>
             </div>
 
@@ -1387,11 +1418,16 @@
                     <p>
                         Application de gestion des transactions avec prise en charge de plusieurs types de monnaies.
                     </p>
+                    <a href="#" target="_blank" class="portfolio-btn">
+                        Voir le projet
+                    </a>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
+
 
 
     <!-- Testimonials Section -->
@@ -1883,5 +1919,6 @@ document.querySelectorAll('.fade-in').forEach(el => {
 </body>
 
 </html>
+
 
 
