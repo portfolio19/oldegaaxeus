@@ -245,53 +245,59 @@
             font-weight: 500;
         }
 
-        /* Style photo inspiré de la landing page */
-        .hero-image-wrapper {
-            position: relative;
-            flex-shrink: 0;
-        }
-        .hero-image-wrapper .profile-ring {
-            width: 360px;
-            height: 360px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent), var(--secondary));
-            padding: 6px;
-            box-shadow: 0 8px 30px rgba(42,127,138,0.15);
-        }
-        .hero-image-wrapper .profile-ring .profile-image {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid white;
-            background: white;
-        }
-        /* Badge flottant inspiré de la landing page */
-        .hero-image-wrapper .floating-badge {
-            position: absolute;
-            bottom: 20px;
-            right: -10px;
-            background: white;
-            border-radius: 60px;
-            padding: 0.6rem 1.4rem;
-            box-shadow: var(--shadow-hover);
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            font-weight: 600;
-            font-size: 0.85rem;
-            color: var(--secondary);
-            animation: float 3s ease-in-out infinite;
-        }
-        .hero-image-wrapper .floating-badge i {
-            color: var(--accent);
-            font-size: 1.1rem;
-        }
+       /* Style photo inspiré de la landing page */
+.hero-image-wrapper {
+    position: relative;
+    flex-shrink: 0;
+    margin-top: 1.5rem;
+}
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
+.hero-image-wrapper .profile-ring {
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--secondary));
+    padding: 6px;
+    box-shadow: 0 8px 30px rgba(42,127,138,0.15);
+    display: flex;
+    align-items: flex-end; /* Aligne l'image en bas du cercle */
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-image-wrapper .profile-ring .profile-image {
+    width: 100%;
+    height: 95%; /* Légèrement réduit pour créer un effet de descente */
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top center; /* Ajuste la position de l'image vers le haut pour que le visage reste visible */
+    border: 4px solid white;
+    background: white;
+    margin-bottom: -5px; /* Décale l'image vers le bas dans le conteneur */
+}
+
+/* Ajustement pour les écrans plus petits */
+@media (max-width: 992px) {
+    .hero-image-wrapper .profile-ring {
+        width: 260px;
+        height: 260px;
+    }
+    .hero-image-wrapper .profile-ring .profile-image {
+        height: 94%;
+        margin-bottom: -3px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-image-wrapper .profile-ring {
+        width: 200px;
+        height: 200px;
+    }
+    .hero-image-wrapper .profile-ring .profile-image {
+        height: 93%;
+        margin-bottom: -2px;
+    }
+}
 
         /* ===== ABOUT ===== */
         .about-card {
