@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Oldéga AXEUS · Solutions Digitales</title>
+    <title>Oldéga AXEUS · Portfolio</title>
     <link rel="icon" type="image/x-icon" href="img/favicon.png" />
 
     <!-- Bootstrap 5 -->
@@ -690,6 +690,124 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+
+        /* ===== PORTFOLIO ===== */
+.portfolio-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+.portfolio-link:hover {
+    text-decoration: none;
+}
+
+.portfolio-img-container {
+    height: 200px;
+    overflow: hidden;
+    background: var(--light-gray);
+    position: relative;
+}
+
+.portfolio-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+/* Overlay au survol */
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 58, 92, 0.85);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    opacity: 0;
+    transition: var(--transition);
+    color: white;
+    cursor: pointer;
+}
+
+.portfolio-overlay i {
+    font-size: 2rem;
+    color: white;
+}
+
+.portfolio-overlay span {
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-item:hover .portfolio-img-container img {
+    transform: scale(1.05);
+}
+
+.portfolio-info {
+    padding: 1.5rem 1.5rem 1.8rem;
+    background: white;
+}
+
+.portfolio-tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--accent);
+    background: var(--accent-light);
+    padding: 0.25rem 0.9rem;
+    border-radius: 40px;
+    display: inline-block;
+    margin-bottom: 0.6rem;
+}
+
+.portfolio-info h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.4rem;
+    color: var(--primary);
+}
+
+.portfolio-info p {
+    font-size: 0.9rem;
+    color: var(--gray);
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+}
+
+.portfolio-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--accent);
+    transition: var(--transition);
+}
+
+.portfolio-btn i {
+    transition: var(--transition);
+}
+
+.portfolio-link:hover .portfolio-btn i {
+    transform: translateX(5px);
+}
+
+.portfolio-link:hover .portfolio-btn {
+    color: var(--secondary);
+}
     </style>
 </head>
 <body>
@@ -697,7 +815,7 @@
     <!-- ===== NAVBAR ===== -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navbar">
         <div class="container">
-            <a class="navbar-brand" href="#"><i class="fas fa-code"></i>Dev<span>Solutions</span></a>
+            <a class="navbar-brand" href="#"><i class="fas fa-code"></i>Port<span>folio</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Navigation">
                 <i class="fas fa-bars"></i>
@@ -886,60 +1004,94 @@
     </section>
 
     <!-- ===== PORTFOLIO ===== -->
-    <section id="portfolio">
-        <div class="container">
-            <div class="section-title">
-                <h2>Quelques réalisations</h2>
-                <p>Des projets concrets qui témoignent de mon expertise.</p>
-            </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-item fade-in">
+<section id="portfolio">
+    <div class="container">
+        <div class="section-title">
+            <h2>Mes réalisations</h2>
+            <p>Des solutions digitales sur mesure qui transforment les idées en résultats concrets.</p>
+        </div>
+        <div class="portfolio-grid">
+            <!-- Projet 1 -->
+            <div class="portfolio-item fade-in">
+                <a href="https://votre-site-microfinance.com" target="_blank" class="portfolio-link">
                     <div class="portfolio-img-container">
-                        <img src="img/applimicro1.png" alt="AppliMicro" />
+                        <img src="img/applimicro1.png" alt="AppliMicro - Gestion de microfinance" />
+                        <div class="portfolio-overlay">
+                            <i class="fas fa-eye"></i>
+                            <span>Voir le projet</span>
+                        </div>
                     </div>
                     <div class="portfolio-info">
                         <span class="portfolio-tag">Microfinance</span>
                         <h3>AppliMicro</h3>
-                        <p>Gestion de microfinance multi-devises</p>
+                        <p>Gestion complète de microfinance avec suivi multi-devises et rapports automatisés.</p>
+                        <span class="portfolio-btn">Découvrir <i class="fas fa-arrow-right"></i></span>
                     </div>
-                </div>
-                <div class="portfolio-item fade-in">
+                </a>
+            </div>
+
+            <!-- Projet 2 -->
+            <div class="portfolio-item fade-in">
+                <a href="https://gestion.applischool.com" target="_blank" class="portfolio-link">
                     <div class="portfolio-img-container">
-                        <img src="img/applischool2.png" alt="Système Scolaire" />
+                        <img src="img/applischool2.png" alt="Système Scolaire - Gestion d'établissement" />
+                        <div class="portfolio-overlay">
+                            <i class="fas fa-eye"></i>
+                            <span>Voir le projet</span>
+                        </div>
                     </div>
                     <div class="portfolio-info">
                         <span class="portfolio-tag">Éducation</span>
                         <h3>Système Scolaire</h3>
-                        <p>Gestion d'établissement scolaire</p>
+                        <p>Plateforme intuitive de gestion scolaire : notes, emplois du temps, communication parents-enseignants.</p>
+                        <span class="portfolio-btn">Découvrir <i class="fas fa-arrow-right"></i></span>
                     </div>
-                </div>
-                <div class="portfolio-item fade-in">
+                </a>
+            </div>
+
+            <!-- Projet 3 -->
+            <div class="portfolio-item fade-in">
+                <a href="https://lafierteproduction.com" target="_blank" class="portfolio-link">
                     <div class="portfolio-img-container">
-                        <img src="img/produit_chimique.png" alt="Site vitrine" />
+                        <img src="img/produit_chimique.png" alt="Site Entreprise - Produits chimiques" />
+                        <div class="portfolio-overlay">
+                            <i class="fas fa-eye"></i>
+                            <span>Voir le projet</span>
+                        </div>
                     </div>
                     <div class="portfolio-info">
                         <span class="portfolio-tag">Vitrine</span>
-                        <h3>Site Entreprise</h3>
-                        <p>Présentation d'entreprise professionnelle</p>
+                        <h3>La Fierté Production</h3>
+                        <p>Site vitrine moderne pour une entreprise de produits chimiques avec catalogue interactif.</p>
+                        <span class="portfolio-btn">Découvrir <i class="fas fa-arrow-right"></i></span>
                     </div>
-                </div>
-                <div class="portfolio-item fade-in">
+                </a>
+            </div>
+
+            <!-- Projet 4 -->
+            <div class="portfolio-item fade-in">
+                <a href="https://rodgastore.com" target="_blank" class="portfolio-link">
                     <div class="portfolio-img-container">
-                        <img src="img/ecommerce.png" alt="E-commerce" />
+                        <img src="img/ecommerce.png" alt="Boutique en ligne - E-commerce" />
+                        <div class="portfolio-overlay">
+                            <i class="fas fa-eye"></i>
+                            <span>Voir le projet</span>
+                        </div>
                     </div>
                     <div class="portfolio-info">
                         <span class="portfolio-tag">E-commerce</span>
-                        <h3>Boutique en ligne</h3>
-                        <p>Plateforme de vente sécurisée</p>
+                        <h3>Rodga Store</h3>
+                        <p>Boutique en ligne sécurisée avec paiement intégré, gestion de stock et expérience utilisateur optimisée.</p>
+                        <span class="portfolio-btn">Découvrir <i class="fas fa-arrow-right"></i></span>
                     </div>
-                </div>
-            </div>
-            <div class="text-center mt-4">
-                <a href="#contact" class="btn btn-outline"><i class="fas fa-plus"></i> Voir plus de réalisations</a>
+                </a>
             </div>
         </div>
-    </section>
-
+        <div class="text-center mt-4">
+            <a href="#contact" class="btn btn-accent"><i class="fas fa-paper-plane"></i> Discutons de votre projet</a>
+        </div>
+    </div>
+</section>
     <!-- ===== TESTIMONIALS ===== -->
     <section id="testimonials">
         <div class="container">
@@ -1045,7 +1197,7 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <a href="#" class="logo"><i class="fas fa-code"></i>Dev<span>Solutions</span></a>
+                <a href="#" class="logo"><i class="fas fa-code"></i>Port<span>folio</span></a>
                 <div class="social-links">
                     <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                     <a href="#" class="social-link"><i class="fab fa-github"></i></a>
@@ -1054,7 +1206,7 @@
                 </div>
             </div>
             <div class="copyright">
-                &copy; 2025 Dev Solutions. Tous droits réservés. <i class="fas fa-heart"></i>
+                &copy; 2026 Portfolio. Tous droits réservés. <i class="fas fa-heart"></i>
             </div>
         </div>
     </footer>
