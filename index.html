@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Oldéga AXEUS · Développeur Web</title>
+    <title>Oldéga AXEUS · Solutions Digitales</title>
     <link rel="icon" type="image/x-icon" href="img/favicon.png" />
 
     <!-- Bootstrap 5 -->
@@ -16,15 +16,16 @@
     <style>
         /* ===== VARIABLES ===== */
         :root {
-            --primary: #1e1e2f;
-            --secondary: #0b3b5c;
-            --accent: #1f8a9c;
-            --light: #f7f9fc;
-            --gray: #5b6778;
-            --light-gray: #eef2f6;
+            --primary: #0b1a2e;
+            --secondary: #1a3a5c;
+            --accent: #2a7f8a;
+            --accent-light: #eaf4f6;
+            --light: #f6f9fc;
+            --gray: #4a5a6e;
+            --light-gray: #e9edf2;
             --white: #ffffff;
-            --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.04);
-            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.07);
+            --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 16px 40px rgba(0, 0, 0, 0.08);
             --radius: 16px;
             --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
@@ -37,10 +38,10 @@
             background: var(--light);
             color: var(--primary);
             line-height: 1.6;
-            padding-top: 72px; /* navbar fixe */
+            padding-top: 72px;
         }
         h1, h2, h3, h4 {
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: -0.02em;
             color: var(--primary);
         }
@@ -48,7 +49,7 @@
         img { max-width: 100%; display: block; }
 
         .container {
-            max-width: 1120px;
+            max-width: 1140px;
             margin: 0 auto;
             padding: 0 1.5rem;
         }
@@ -59,7 +60,7 @@
             margin-bottom: 3rem;
         }
         .section-title h2 {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             margin-bottom: 0.5rem;
         }
         .section-title p {
@@ -73,7 +74,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.6rem;
-            padding: 0.8rem 2rem;
+            padding: 0.9rem 2.2rem;
             border-radius: 60px;
             font-weight: 600;
             font-size: 0.95rem;
@@ -84,28 +85,46 @@
         .btn-primary {
             background: var(--secondary);
             color: white;
-            box-shadow: 0 4px 12px rgba(11, 59, 92, 0.25);
+            box-shadow: 0 4px 14px rgba(26, 58, 92, 0.25);
         }
         .btn-primary:hover {
-            background: #0a2f4a;
+            background: #0d2a44;
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(11, 59, 92, 0.3);
+            box-shadow: 0 8px 24px rgba(26, 58, 92, 0.3);
+        }
+        .btn-accent {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 4px 14px rgba(42, 127, 138, 0.3);
+        }
+        .btn-accent:hover {
+            background: #1f6a73;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(42, 127, 138, 0.35);
         }
         .btn-outline {
             background: transparent;
             color: var(--secondary);
-            border: 1.5px solid var(--secondary);
+            border: 2px solid var(--secondary);
         }
         .btn-outline:hover {
             background: var(--secondary);
             color: white;
             transform: translateY(-2px);
         }
+        .btn-white {
+            background: white;
+            color: var(--secondary);
+        }
+        .btn-white:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+        }
 
         /* ===== NAVBAR ===== */
         .navbar {
             padding: 0.7rem 0;
-            background: rgba(255, 255, 255, 0.92) !important;
+            background: rgba(255, 255, 255, 0.95) !important;
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
             transition: var(--transition);
@@ -144,27 +163,41 @@
         }
         .navbar-nav .nav-link:hover,
         .navbar-nav .nav-link.active {
-            color: var(--secondary) !important;
+            color: var(--accent) !important;
         }
         .navbar-toggler { border: none; font-size: 1.4rem; color: var(--primary); }
         .navbar-toggler:focus { box-shadow: none; }
 
         /* ===== HERO ===== */
         .hero {
-            min-height: 90vh;
+            min-height: 85vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(145deg, #f4f7fc 0%, #e8edf5 100%);
+            background: linear-gradient(145deg, #f0f4fa 0%, #e2eaf2 100%);
             position: relative;
             padding: 2rem 0;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 60%;
+            height: 140%;
+            background: radial-gradient(circle, rgba(42,127,138,0.04) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
         }
         .hero-content {
             display: flex;
             align-items: center;
             gap: 4rem;
+            position: relative;
+            z-index: 1;
         }
         .hero-text h1 {
-            font-size: 3rem;
+            font-size: 3.2rem;
             font-weight: 700;
             line-height: 1.1;
             margin-bottom: 1.2rem;
@@ -180,53 +213,101 @@
             left: 0;
             width: 100%;
             height: 8px;
-            background: rgba(31, 138, 156, 0.15);
+            background: rgba(42,127,138,0.15);
             border-radius: 4px;
             z-index: -1;
         }
         .hero-text p {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: var(--gray);
             max-width: 520px;
             margin-bottom: 2rem;
         }
         .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-        .profile-image {
-            width: 340px;
-            height: 340px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 6px solid white;
-            box-shadow: var(--shadow-sm);
-            background: var(--secondary);
-            padding: 6px;
+        .hero-stats {
+            display: flex;
+            gap: 2.5rem;
+            margin-top: 2.5rem;
         }
-        .profile-image img {
+        .hero-stats .stat {
+            text-align: left;
+        }
+        .hero-stats .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary);
+            line-height: 1;
+        }
+        .hero-stats .stat-label {
+            font-size: 0.85rem;
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        /* Style photo inspiré de la landing page */
+        .hero-image-wrapper {
+            position: relative;
+            flex-shrink: 0;
+        }
+        .hero-image-wrapper .profile-ring {
+            width: 360px;
+            height: 360px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            padding: 6px;
+            box-shadow: 0 8px 30px rgba(42,127,138,0.15);
+        }
+        .hero-image-wrapper .profile-ring .profile-image {
             width: 100%;
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
+            border: 4px solid white;
+            background: white;
+        }
+        /* Badge flottant inspiré de la landing page */
+        .hero-image-wrapper .floating-badge {
+            position: absolute;
+            bottom: 20px;
+            right: -10px;
+            background: white;
+            border-radius: 60px;
+            padding: 0.6rem 1.4rem;
+            box-shadow: var(--shadow-hover);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--secondary);
+            animation: float 3s ease-in-out infinite;
+        }
+        .hero-image-wrapper .floating-badge i {
+            color: var(--accent);
+            font-size: 1.1rem;
         }
 
-        /* ===== ABOUT (modeste & élégant) ===== */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* ===== ABOUT ===== */
         .about-card {
             background: white;
             border-radius: var(--radius);
-            padding: 2.8rem 3rem;
+            padding: 3rem;
             box-shadow: var(--shadow-sm);
-            max-width: 880px;
+            max-width: 900px;
             margin: 0 auto;
-            transition: var(--transition);
             border-left: 4px solid var(--accent);
         }
-        .about-card:hover { box-shadow: var(--shadow-hover); }
-
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2.5rem 3rem;
-            margin: 2rem 0 2.5rem;
+            gap: 2rem 3rem;
+            margin: 1.5rem 0 2rem;
         }
         .about-item {
             display: flex;
@@ -234,9 +315,9 @@
             align-items: flex-start;
         }
         .about-item i {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: var(--accent);
-            background: rgba(31, 138, 156, 0.08);
+            background: var(--accent-light);
             padding: 0.6rem;
             border-radius: 12px;
             flex-shrink: 0;
@@ -251,70 +332,10 @@
             margin: 0;
         }
 
-        .about-stats {
-            display: flex;
-            justify-content: space-around;
-            border-top: 1px solid var(--light-gray);
-            padding-top: 2rem;
-            margin-top: 1rem;
-        }
-        .stat-item { text-align: center; }
-        .stat-number {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--secondary);
-            line-height: 1;
-        }
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--gray);
-            font-weight: 500;
-            letter-spacing: 0.3px;
-            text-transform: uppercase;
-        }
-
-        /* ===== SKILLS ===== */
-        .skills-section {
-            background: white;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-sm);
-            padding: 3rem 2.5rem;
-        }
-        .skill-category h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1.8rem;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-        .skill-category h3 i { color: var(--accent); }
-
-        .skill-item { margin-bottom: 1.5rem; }
-        .skill-info {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.95rem;
-            font-weight: 500;
-            margin-bottom: 0.3rem;
-        }
-        .skill-bar {
-            height: 6px;
-            background: var(--light-gray);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        .skill-progress {
-            height: 100%;
-            border-radius: 8px;
-            background: linear-gradient(90deg, var(--secondary), var(--accent));
-            width: 0;
-            transition: width 1s cubic-bezier(0.22, 0.61, 0.36, 1);
-        }
-
         /* ===== SERVICES ===== */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 2rem;
         }
         .service-card {
@@ -324,56 +345,85 @@
             text-align: center;
             box-shadow: var(--shadow-sm);
             transition: var(--transition);
-            border-bottom: 3px solid transparent;
+            border-top: 3px solid transparent;
         }
         .service-card:hover {
             transform: translateY(-6px);
             box-shadow: var(--shadow-hover);
-            border-bottom-color: var(--accent);
+            border-top-color: var(--accent);
         }
         .service-icon {
             width: 64px;
             height: 64px;
-            margin: 0 auto 1.2rem;
-            background: rgba(31, 138, 156, 0.08);
+            margin: 0 auto 1rem;
+            background: var(--accent-light);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: var(--accent);
         }
-        .service-card h3 { font-size: 1.2rem; margin-bottom: 0.6rem; }
-        .service-card p { font-size: 0.95rem; color: var(--gray); margin: 0; }
+        .service-card h3 { font-size: 1.1rem; margin-bottom: 0.4rem; }
+        .service-card p { font-size: 0.9rem; color: var(--gray); margin: 0; }
+
+        .service-features {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0;
+            text-align: left;
+        }
+        .service-features li {
+            font-size: 0.85rem;
+            color: var(--gray);
+            padding: 0.2rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .service-features li i {
+            color: var(--accent);
+            font-size: 0.75rem;
+        }
+
+        /* ===== WHY ME ===== */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .why-item {
+            background: white;
+            padding: 1.8rem 1.2rem;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        .why-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+        .why-item i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 0.6rem;
+        }
+        .why-item h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.2rem;
+        }
+        .why-item p {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin: 0;
+        }
 
         /* ===== PORTFOLIO ===== */
-        .portfolio-filter {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-            margin-bottom: 2.5rem;
-        }
-        .filter-btn {
-            padding: 0.4rem 1.4rem;
-            border-radius: 40px;
-            border: 1px solid var(--light-gray);
-            background: transparent;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: var(--transition);
-            cursor: pointer;
-            color: var(--gray);
-        }
-        .filter-btn.active,
-        .filter-btn:hover {
-            background: var(--secondary);
-            color: white;
-            border-color: var(--secondary);
-        }
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
             gap: 2rem;
         }
         .portfolio-item {
@@ -388,7 +438,7 @@
             box-shadow: var(--shadow-hover);
         }
         .portfolio-img-container {
-            height: 200px;
+            height: 180px;
             overflow: hidden;
             background: var(--light-gray);
         }
@@ -399,38 +449,32 @@
             transition: var(--transition);
         }
         .portfolio-item:hover .portfolio-img-container img {
-            transform: scale(1.04);
+            transform: scale(1.05);
         }
         .portfolio-info {
-            padding: 1.5rem 1.5rem 1.8rem;
+            padding: 1.5rem;
         }
-        .portfolio-category {
+        .portfolio-info h3 { font-size: 1.05rem; margin-bottom: 0.2rem; }
+        .portfolio-info p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+        .portfolio-tag {
             font-size: 0.7rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.4px;
             color: var(--accent);
-            background: rgba(31, 138, 156, 0.08);
-            padding: 0.2rem 0.9rem;
+            background: var(--accent-light);
+            padding: 0.2rem 0.8rem;
             border-radius: 40px;
             display: inline-block;
-            margin-bottom: 0.5rem;
         }
-        .portfolio-info h3 { font-size: 1.1rem; margin-bottom: 0.3rem; }
-        .portfolio-info p { font-size: 0.9rem; color: var(--gray); margin-bottom: 1rem; }
-        .portfolio-btn {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--secondary);
-        }
-        .portfolio-btn i { margin-left: 0.4rem; transition: var(--transition); }
-        .portfolio-btn:hover i { transform: translateX(4px); }
 
         /* ===== TESTIMONIALS ===== */
         .testimonial-slider {
-            max-width: 800px;
+            max-width: 760px;
             margin: 0 auto;
-            position: relative;
         }
         .testimonial-slide {
             background: white;
@@ -444,7 +488,7 @@
         .testimonial-slide .quote-icon {
             font-size: 2rem;
             color: var(--accent);
-            opacity: 0.25;
+            opacity: 0.2;
             margin-bottom: 1rem;
         }
         .testimonial-slide p {
@@ -460,8 +504,8 @@
             gap: 1rem;
         }
         .client-avatar {
-            width: 56px;
-            height: 56px;
+            width: 52px;
+            height: 52px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--light-gray);
@@ -485,42 +529,64 @@
             cursor: pointer;
         }
         .slider-btn.active {
-            background: var(--secondary);
+            background: var(--accent);
             transform: scale(1.25);
         }
 
+        /* ===== CTA ===== */
+        .cta-section {
+            background: var(--secondary);
+            color: white;
+            border-radius: var(--radius);
+            padding: 3.5rem 3rem;
+            text-align: center;
+        }
+        .cta-section h2 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .cta-section p {
+            color: rgba(255,255,255,0.7);
+            max-width: 500px;
+            margin: 0 auto 1.8rem;
+            font-size: 1.05rem;
+        }
+
         /* ===== CONTACT ===== */
-        .contact-content {
+        .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1.2fr;
             gap: 3rem;
-            align-items: start;
         }
         .contact-item {
             display: flex;
             align-items: center;
             gap: 1.2rem;
-            padding: 1.2rem 1.5rem;
+            padding: 1rem 1.5rem;
             background: white;
             border-radius: var(--radius);
             box-shadow: var(--shadow-sm);
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
             transition: var(--transition);
         }
-        .contact-item:hover { transform: translateX(4px); box-shadow: var(--shadow-hover); }
+        .contact-item:hover {
+            transform: translateX(4px);
+            box-shadow: var(--shadow-hover);
+        }
         .contact-icon {
-            width: 48px;
-            height: 48px;
-            background: rgba(31, 138, 156, 0.08);
+            width: 44px;
+            height: 44px;
+            background: var(--accent-light);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--accent);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             flex-shrink: 0;
         }
-        .contact-item h4 { font-size: 1rem; margin-bottom: 0.1rem; }
+        .contact-item h4 { font-size: 0.95rem; margin-bottom: 0.1rem; }
         .contact-item p { font-size: 0.9rem; color: var(--gray); margin: 0; }
 
         .contact-form {
@@ -539,10 +605,10 @@
         }
         .form-control:focus {
             border-color: var(--accent);
-            box-shadow: 0 0 0 4px rgba(31, 138, 156, 0.12);
+            box-shadow: 0 0 0 4px rgba(42,127,138,0.12);
             background: white;
         }
-        textarea.form-control { min-height: 130px; resize: vertical; }
+        textarea.form-control { min-height: 120px; resize: vertical; }
 
         /* ===== FOOTER ===== */
         footer {
@@ -574,12 +640,12 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.06);
+            background: rgba(255,255,255,0.06);
             display: flex;
             align-items: center;
             justify-content: center;
             transition: var(--transition);
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255,255,255,0.6);
         }
         .social-link:hover {
             background: var(--accent);
@@ -588,36 +654,39 @@
         }
         .copyright {
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            border-top: 1px solid rgba(255,255,255,0.06);
             padding-top: 1.5rem;
             font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255,255,255,0.4);
         }
         .copyright i { color: #e74c6f; }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 992px) {
             .hero-content { flex-direction: column; text-align: center; gap: 2rem; }
-            .hero-text p { margin: 0 auto 2rem; }
+            .hero-text p { margin: 0 auto 1.5rem; }
             .hero-buttons { justify-content: center; }
-            .profile-image { width: 260px; height: 260px; }
-            .contact-content { grid-template-columns: 1fr; }
+            .hero-stats { justify-content: center; }
+            .hero-image-wrapper .profile-ring { width: 260px; height: 260px; }
+            .hero-image-wrapper .floating-badge { bottom: 10px; right: 0; padding: 0.4rem 1rem; font-size: 0.75rem; }
+            .contact-grid { grid-template-columns: 1fr; }
             .about-grid { grid-template-columns: 1fr; gap: 1.5rem; }
         }
         @media (max-width: 576px) {
             .hero-text h1 { font-size: 2.2rem; }
-            .profile-image { width: 200px; height: 200px; }
+            .hero-image-wrapper .profile-ring { width: 200px; height: 200px; }
+            .hero-image-wrapper .floating-badge { bottom: 0; right: 0; padding: 0.3rem 0.8rem; font-size: 0.65rem; }
+            .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
             .about-card { padding: 1.8rem; }
-            .contact-form { padding: 1.8rem; }
-            .testimonial-slide { padding: 1.8rem; }
-            .skills-section { padding: 2rem 1.2rem; }
+            .contact-form { padding: 1.5rem; }
+            .cta-section { padding: 2rem 1.5rem; }
             section { padding: 3rem 0; }
         }
 
-        /* fade-in utilitaire */
+        /* ===== FADE-IN ===== */
         .fade-in {
             opacity: 0;
-            transform: translateY(18px);
+            transform: translateY(20px);
             transition: opacity 0.7s ease, transform 0.7s ease;
         }
         .fade-in.show {
@@ -631,7 +700,7 @@
     <!-- ===== NAVBAR ===== -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navbar">
         <div class="container">
-            <a class="navbar-brand" href="#"><i class="fas fa-code"></i>Portfo<span>lio</span></a>
+            <a class="navbar-brand" href="#"><i class="fas fa-code"></i>Dev<span>Solutions</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Navigation">
                 <i class="fas fa-bars"></i>
@@ -640,7 +709,6 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="#home">Accueil</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">À propos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Compétences</a></li>
                     <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="#portfolio">Réalisations</a></li>
                     <li class="nav-item"><a class="nav-link" href="#testimonials">Témoignages</a></li>
@@ -655,126 +723,74 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Je suis <span class="highlight">Oldéga AXEUS</span>,<br />développeur web créatif</h1>
-                    <p>Je transforme vos idées en expériences digitales élégantes, performantes et centrées sur l'utilisateur.</p>
+                    <h1>Des solutions numériques qui font <span class="highlight">grandir votre entreprise</span></h1>
+                    <p>Je conçois des sites web et des applications modernes, rapides et sécurisés pour vous aider à gagner en visibilité et à augmenter vos revenus.</p>
                     <div class="hero-buttons">
-                        <a href="#portfolio" class="btn btn-primary"><i class="fas fa-arrow-right"></i> Voir mes projets</a>
-                        <a href="#contact" class="btn btn-outline"><i class="fas fa-comment"></i> Discutons</a>
+                        <a href="#contact" class="btn btn-accent"><i class="fas fa-paper-plane"></i> Demander un devis</a>
+                        <a href="#portfolio" class="btn btn-outline"><i class="fas fa-arrow-right"></i> Voir mes projets</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number" data-count="50">0+</div>
+                            <div class="stat-label">Projets réalisés</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number" data-count="30">0+</div>
+                            <div class="stat-label">Clients satisfaits</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Engagement qualité</div>
+                        </div>
                     </div>
                 </div>
-                <div class="profile-image">
-                    <img src="img/oldega1.jpeg" alt="Oldéga AXEUS" />
+                <div class="hero-image-wrapper">
+                    <div class="profile-ring">
+                        <img src="img/oldega1.jpeg" alt="Oldéga AXEUS" class="profile-image" />
+                    </div>
+                    <div class="floating-badge">
+                        <i class="fas fa-check-circle"></i> 100% satisfaction
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ===== ABOUT ===== -->
-    <section id="about" class="about">
+    <section id="about">
         <div class="container">
             <div class="section-title">
                 <h2>À propos</h2>
-                <p>Un développeur passionné qui met la technologie au service de vos ambitions.</p>
+                <p>Développeur passionné, je mets la technologie au service de votre réussite.</p>
             </div>
             <div class="about-card fade-in">
                 <div class="about-grid">
                     <div class="about-item">
-                        <i class="fas fa-user-check"></i>
+                        <i class="fas fa-rocket"></i>
                         <div>
-                            <h4>Approche centrée utilisateur</h4>
-                            <p>Chaque projet est pensé pour offrir une expérience fluide et intuitive, en phase avec vos utilisateurs.</p>
+                            <h4>Solutions sur mesure</h4>
+                            <p>Chaque projet est pensé pour répondre précisément à vos besoins et objectifs.</p>
                         </div>
                     </div>
                     <div class="about-item">
                         <i class="fas fa-code"></i>
                         <div>
-                            <h4>Code propre &amp; fiable</h4>
-                            <p>Un développement soigné, maintenable et optimisé, pour des performances durables.</p>
-                        </div>
-                    </div>
-                    <div class="about-item">
-                        <i class="fas fa-chart-line"></i>
-                        <div>
-                            <h4>Solutions orientées croissance</h4>
-                            <p>Je conçois des outils digitaux qui soutiennent le développement de votre activité.</p>
+                            <h4>Code robuste & performant</h4>
+                            <p>Un développement soigné, maintenable et optimisé pour la performance.</p>
                         </div>
                     </div>
                     <div class="about-item">
                         <i class="fas fa-handshake"></i>
                         <div>
-                            <h4>Relation de confiance</h4>
-                            <p>Écoute, transparence et réactivité : ma priorité est votre satisfaction.</p>
+                            <h4>Accompagnement complet</h4>
+                            <p>De la conception à la formation, je vous accompagne à chaque étape.</p>
                         </div>
                     </div>
-                </div>
-
-                <div class="about-stats">
-                    <div class="stat-item">
-                        <div class="stat-number" data-count="10">0</div>
-                        <div class="stat-label">Projets</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-count="3">0</div>
-                        <div class="stat-label">Années d'exp.</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-count="10">0</div>
-                        <div class="stat-label">Clients</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== SKILLS ===== -->
-    <section id="skills">
-        <div class="container">
-            <div class="section-title">
-                <h2>Compétences techniques</h2>
-                <p>Les technologies que je maîtrise pour donner vie à vos projets.</p>
-            </div>
-            <div class="skills-section fade-in">
-                <div class="row g-4">
-                    <div class="col-md-6">
-                        <div class="skill-category">
-                            <h3><i class="fas fa-laptop-code"></i> Frontend &amp; Design</h3>
-                            <div class="skill-item">
-                                <div class="skill-info"><span>HTML5</span><span>95%</span></div>
-                                <div class="skill-bar"><div class="skill-progress" data-width="95"></div></div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info"><span>CSS3</span><span>80%</span></div>
-                                <div class="skill-bar"><div class="skill-progress" data-width="80"></div></div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info"><span>JavaScript</span><span>70%</span></div>
-                                <div class="skill-bar"><div class="skill-progress" data-width="70"></div></div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info"><span>Bootstrap 5</span><span>85%</span></div>
-                                <div class="skill-bar"><div class="skill-progress" data-width="85"></div></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="skill-category">
-                            <h3><i class="fas fa-server"></i> Backend &amp; CMS</h3>
-                            <div class="skill-item">
-                                <div class="skill-info"><span>PHP</span><span>90%</span></div>
-                                <div class="skill-bar"><div class="skill-progress" data-width="90"></div></div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info"><span>WordPress</span><span>94%</span></div>
-                                <div class="skill-bar"><div class="skill-progress" data-width="94"></div></div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info"><span>Python</span><span>50%</span></div>
-                                <div class="skill-bar"><div class="skill-progress" data-width="50"></div></div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info"><span>MySQL</span><span>82%</span></div>
-                                <div class="skill-bar"><div class="skill-progress" data-width="82"></div></div>
-                            </div>
+                    <div class="about-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <h4>Sécurité & fiabilité</h4>
+                            <p>Des solutions robustes, sécurisées et évolutives pour durer dans le temps.</p>
                         </div>
                     </div>
                 </div>
@@ -786,24 +802,87 @@
     <section id="services">
         <div class="container">
             <div class="section-title">
-                <h2>Services</h2>
-                <p>Des prestations sur mesure pour chaque étape de votre projet digital.</p>
+                <h2>Mes services</h2>
+                <p>Des solutions complètes et personnalisées pour répondre à vos besoins.</p>
             </div>
             <div class="services-grid">
                 <div class="service-card fade-in">
-                    <div class="service-icon"><i class="fas fa-code"></i></div>
-                    <h3>Développement web</h3>
-                    <p>Sites vitrines, applications web, interfaces sur mesure — robustes et responsives.</p>
+                    <div class="service-icon"><i class="fas fa-globe"></i></div>
+                    <h3>Sites Web Professionnels</h3>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Site vitrine & entreprise</li>
+                        <li><i class="fas fa-check"></i> Portfolio & boutique en ligne</li>
+                        <li><i class="fas fa-check"></i> Réservation en ligne</li>
+                    </ul>
                 </div>
                 <div class="service-card fade-in">
-                    <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
-                    <h3>UI/UX Design</h3>
-                    <p>Design épuré, parcours utilisateur fluide et identité visuelle cohérente.</p>
+                    <div class="service-icon"><i class="fas fa-laptop"></i></div>
+                    <h3>Applications Web</h3>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Gestion scolaire & microfinance</li>
+                        <li><i class="fas fa-check"></i> Gestion commerciale & stocks</li>
+                        <li><i class="fas fa-check"></i> Applications sur mesure</li>
+                    </ul>
                 </div>
                 <div class="service-card fade-in">
-                    <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
-                    <h3>E‑commerce</h3>
-                    <p>Boutiques en ligne sécurisées, avec gestion de stock et paiements intégrés.</p>
+                    <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Applications Mobiles</h3>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Android & hybrides</li>
+                        <li><i class="fas fa-check"></i> Performantes & sécurisées</li>
+                        <li><i class="fas fa-check"></i> Interfaces fluides</li>
+                    </ul>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-headset"></i></div>
+                    <h3>Maintenance & Support</h3>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Maintenance & mises à jour</li>
+                        <li><i class="fas fa-check"></i> Support technique</li>
+                        <li><i class="fas fa-check"></i> Sauvegarde & conseils</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHY ME ===== -->
+    <section id="why">
+        <div class="container">
+            <div class="section-title">
+                <h2>Pourquoi travailler avec moi ?</h2>
+                <p>Des atouts qui font la différence pour votre projet.</p>
+            </div>
+            <div class="why-grid">
+                <div class="why-item fade-in">
+                    <i class="fas fa-pencil-ruler"></i>
+                    <h4>100% personnalisé</h4>
+                    <p>Chaque projet est unique et conçu sur mesure</p>
+                </div>
+                <div class="why-item fade-in">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h4>Design moderne & responsive</h4>
+                    <p>S'adapte parfaitement à tous les écrans</p>
+                </div>
+                <div class="why-item fade-in">
+                    <i class="fas fa-bolt"></i>
+                    <h4>Rapide & sécurisé</h4>
+                    <p>Performance et sécurité au cœur du développement</p>
+                </div>
+                <div class="why-item fade-in">
+                    <i class="fas fa-server"></i>
+                    <h4>Hébergement & mise en ligne</h4>
+                    <p>Je m'occupe de tout le déploiement</p>
+                </div>
+                <div class="why-item fade-in">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h4>Formation à l'utilisation</h4>
+                    <p>Je vous forme pour une prise en main facile</p>
+                </div>
+                <div class="why-item fade-in">
+                    <i class="fas fa-life-ring"></i>
+                    <h4>Support & suivi</h4>
+                    <p>Un accompagnement durable après la livraison</p>
                 </div>
             </div>
         </div>
@@ -813,75 +892,53 @@
     <section id="portfolio">
         <div class="container">
             <div class="section-title">
-                <h2>Réalisations</h2>
-                <p>Quelques projets récents qui reflètent mon savoir-faire.</p>
+                <h2>Quelques réalisations</h2>
+                <p>Des projets concrets qui témoignent de mon expertise.</p>
             </div>
-
-            <div class="portfolio-filter">
-                <button class="filter-btn active" data-filter="all">Tous</button>
-                <button class="filter-btn" data-filter="web">Web</button>
-                <button class="filter-btn" data-filter="design">Design</button>
-                <button class="filter-btn" data-filter="ecommerce">E‑commerce</button>
-                <button class="filter-btn" data-filter="microfinance">Microfinance</button>
-            </div>
-
             <div class="portfolio-grid">
-                <!-- Projet 1 -->
-                <div class="portfolio-item" data-category="web">
+                <div class="portfolio-item fade-in">
                     <div class="portfolio-img-container">
-                        <a href="https://gestion.applischool.com/" target="_blank">
-                            <img src="img/applischool2.png" alt="Gestion scolaire" />
-                        </a>
+                        <img src="img/applimicro1.png" alt="AppliMicro" />
                     </div>
                     <div class="portfolio-info">
-                        <span class="portfolio-category">Web</span>
-                        <h3>Gestion scolaire</h3>
-                        <p>Application complète pour la gestion d'établissements scolaires.</p>
-                        <a href="https://gestion.applischool.com/" target="_blank" class="portfolio-btn">Voir <i class="fas fa-arrow-right"></i></a>
+                        <span class="portfolio-tag">Microfinance</span>
+                        <h3>AppliMicro</h3>
+                        <p>Gestion de microfinance multi-devises</p>
                     </div>
                 </div>
-                <!-- Projet 2 -->
-                <div class="portfolio-item" data-category="ecommerce">
+                <div class="portfolio-item fade-in">
                     <div class="portfolio-img-container">
-                        <a href="https://lafierteproduction.com/" target="_blank">
-                            <img src="img/produit_chimique.png" alt="Produits chimiques" />
-                        </a>
+                        <img src="img/applischool2.png" alt="Système Scolaire" />
                     </div>
                     <div class="portfolio-info">
-                        <span class="portfolio-category">E‑commerce</span>
-                        <h3>Produits chimiques</h3>
-                        <p>Site de vente en ligne pour produits chimiques professionnels.</p>
-                        <a href="https://lafierteproduction.com/" target="_blank" class="portfolio-btn">Voir <i class="fas fa-arrow-right"></i></a>
+                        <span class="portfolio-tag">Éducation</span>
+                        <h3>Système Scolaire</h3>
+                        <p>Gestion d'établissement scolaire</p>
                     </div>
                 </div>
-                <!-- Projet 3 -->
-                <div class="portfolio-item" data-category="ecommerce">
+                <div class="portfolio-item fade-in">
                     <div class="portfolio-img-container">
-                        <a href="https://rodgastore.com/" target="_blank">
-                            <img src="img/ecommerce.png" alt="Boutique mode" />
-                        </a>
+                        <img src="img/produit_chimique.png" alt="Site vitrine" />
                     </div>
                     <div class="portfolio-info">
-                        <span class="portfolio-category">E‑commerce</span>
-                        <h3>Boutique mode</h3>
-                        <p>Plateforme e‑commerce sécurisée et responsive.</p>
-                        <a href="https://rodgastore.com/" target="_blank" class="portfolio-btn">Voir <i class="fas fa-arrow-right"></i></a>
+                        <span class="portfolio-tag">Vitrine</span>
+                        <h3>Site Entreprise</h3>
+                        <p>Présentation d'entreprise professionnelle</p>
                     </div>
                 </div>
-                <!-- Projet 4 -->
-                <div class="portfolio-item" data-category="microfinance">
+                <div class="portfolio-item fade-in">
                     <div class="portfolio-img-container">
-                        <a href="#">
-                            <img src="img/applimicro1.png" alt="Microfinance" />
-                        </a>
+                        <img src="img/ecommerce.png" alt="E-commerce" />
                     </div>
                     <div class="portfolio-info">
-                        <span class="portfolio-category">Microfinance</span>
-                        <h3>App de microfinance</h3>
-                        <p>Gestion de transactions multi‑devises pour institutions financières.</p>
-                        <a href="#" class="portfolio-btn">Voir <i class="fas fa-arrow-right"></i></a>
+                        <span class="portfolio-tag">E-commerce</span>
+                        <h3>Boutique en ligne</h3>
+                        <p>Plateforme de vente sécurisée</p>
                     </div>
                 </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="#contact" class="btn btn-outline"><i class="fas fa-plus"></i> Voir plus de réalisations</a>
             </div>
         </div>
     </section>
@@ -891,37 +948,33 @@
         <div class="container">
             <div class="section-title">
                 <h2>Témoignages</h2>
-                <p>Ils ont fait confiance à mon travail.</p>
+                <p>Ce que mes clients pensent de mon travail.</p>
             </div>
             <div class="testimonial-slider fade-in">
-                <!-- Slide 1 -->
                 <div class="testimonial-slide active">
                     <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
-                    <p>"Oldéga a su concrétiser notre vision avec un site élégant et performant. Un vrai professionnel, à l'écoute et réactif."</p>
+                    <p>"Application livrée dans les délais, fonctionnelle et facile à utiliser. Je recommande vivement !"</p>
                     <div class="client-info">
                         <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Marie" class="client-avatar" />
-                        <div><h4>Marie Laurent</h4><span>Directrice marketing</span></div>
+                        <div><h4>Marie L.</h4><span>Directrice d'école</span></div>
                     </div>
                 </div>
-                <!-- Slide 2 -->
+                <div class="testimonial-slide">
+                    <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+                    <p>"Très satisfait du service, du suivi et de la formation. Merci pour votre accompagnement !"</p>
+                    <div class="client-info">
+                        <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Robinson" class="client-avatar" />
+                        <div><h4>Robinson P.</h4><span>Commerçant</span></div>
+                    </div>
+                </div>
                 <div class="testimonial-slide">
                     <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
                     <p>"Une collaboration fluide et des solutions techniques de haute qualité. Oldéga a su dépasser nos attentes."</p>
                     <div class="client-info">
-                        <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Thomas" class="client-avatar" />
-                        <div><h4>Thomas Dubois</h4><span>CEO, Startup Innov</span></div>
-                    </div>
-                </div>
-                <!-- Slide 3 -->
-                <div class="testimonial-slide">
-                    <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
-                    <p>"Notre site e-commerce a gagné en performance et en attractivité. Oldéga est un expert en qui l'on peut avoir confiance."</p>
-                    <div class="client-info">
                         <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sophie" class="client-avatar" />
-                        <div><h4>Sophie Martin</h4><span>Responsable e‑commerce</span></div>
+                        <div><h4>Sophie M.</h4><span>Responsable e-commerce</span></div>
                     </div>
                 </div>
-
                 <div class="slider-controls">
                     <button class="slider-btn active" data-slide="0"></button>
                     <button class="slider-btn" data-slide="1"></button>
@@ -931,26 +984,37 @@
         </div>
     </section>
 
+    <!-- ===== CTA ===== -->
+    <section id="cta">
+        <div class="container">
+            <div class="cta-section fade-in">
+                <h2>Prêt à démarrer votre projet ?</h2>
+                <p>Discutons de vos idées et transformons-les en réalité.</p>
+                <a href="#contact" class="btn btn-white"><i class="fas fa-comment"></i> Discutons de votre projet</a>
+            </div>
+        </div>
+    </section>
+
     <!-- ===== CONTACT ===== -->
     <section id="contact">
         <div class="container">
             <div class="section-title">
-                <h2>Parlons de votre projet</h2>
-                <p>Une idée ? Un besoin ? Je suis à un message de vous.</p>
+                <h2>Contact</h2>
+                <p>Une question ? Un projet ? Je suis à votre écoute.</p>
             </div>
-            <div class="contact-content">
+            <div class="contact-grid">
                 <div class="contact-info">
                     <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-map-pin"></i></div>
-                        <div><h4>Adresse</h4><p>464, Rue Jerusalem, Arcahaie</p></div>
+                        <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                        <div><h4>WhatsApp</h4><p>+509 38 50 42 57</p></div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                        <div><h4>Email</h4><p>oltegaaxeus78@gmail.com</p></div>
+                        <div><h4>Email</h4><p>applimicro47@gmail.com</p></div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
-                        <div><h4>Téléphone</h4><p>+509 3850 4257</p></div>
+                        <div class="contact-icon"><i class="fas fa-globe"></i></div>
+                        <div><h4>Site web</h4><p>www.applimicro.online</p></div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon"><i class="fas fa-clock"></i></div>
@@ -970,9 +1034,9 @@
                             <input type="text" class="form-control" name="sujet" placeholder="Sujet" required />
                         </div>
                         <div class="mb-3">
-                            <textarea class="form-control" name="message" rows="4" placeholder="Votre message..." required></textarea>
+                            <textarea class="form-control" name="message" rows="4" placeholder="Décrivez votre projet..." required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary w-100"><i class="fas fa-paper-plane"></i> Envoyer</button>
+                        <button type="submit" class="btn btn-accent w-100"><i class="fas fa-paper-plane"></i> Envoyer</button>
                     </form>
                     <div id="formMessage" class="alert mt-3 d-none"></div>
                 </div>
@@ -984,7 +1048,7 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <a href="#" class="logo"><i class="fas fa-code"></i>Portfo<span>lio</span></a>
+                <a href="#" class="logo"><i class="fas fa-code"></i>Dev<span>Solutions</span></a>
                 <div class="social-links">
                     <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                     <a href="#" class="social-link"><i class="fab fa-github"></i></a>
@@ -993,7 +1057,7 @@
                 </div>
             </div>
             <div class="copyright">
-                &copy; 2025 Oldéga AXEUS · Conçu avec <i class="fas fa-heart"></i> et beaucoup de code
+                &copy; 2025 Dev Solutions. Tous droits réservés. <i class="fas fa-heart"></i>
             </div>
         </div>
     </footer>
@@ -1011,7 +1075,6 @@
             window.addEventListener('scroll', function() {
                 navbar.classList.toggle('scrolled', window.scrollY > 40);
                 updateActiveNav();
-                animateSkills();
                 animateStats();
             });
 
@@ -1029,67 +1092,34 @@
                 });
             }
 
-            // ---- Skills animation ----
-            let skillsAnimated = false;
-
-            function animateSkills() {
-                if (skillsAnimated) return;
-                const section = document.getElementById('skills');
-                if (!section) return;
-                const rect = section.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 80) {
-                    document.querySelectorAll('.skill-progress').forEach(bar => {
-                        const width = bar.getAttribute('data-width');
-                        bar.style.width = width + '%';
-                    });
-                    skillsAnimated = true;
-                }
-            }
-
             // ---- Stats animation ----
             let statsAnimated = false;
 
             function animateStats() {
                 if (statsAnimated) return;
-                const section = document.getElementById('about');
+                const stats = document.querySelectorAll('.stat-number[data-count]');
+                if (!stats.length) return;
+                const section = document.getElementById('home');
                 if (!section) return;
                 const rect = section.getBoundingClientRect();
                 if (rect.top < window.innerHeight - 80) {
-                    document.querySelectorAll('.stat-number').forEach(el => {
+                    stats.forEach(el => {
                         const target = parseInt(el.getAttribute('data-count'));
                         let current = 0;
-                        const step = Math.ceil(target / 40);
+                        const step = Math.ceil(target / 50);
                         const timer = setInterval(() => {
                             current += step;
-                            if (current >= target) { el.textContent = target + '+';
-                                clearInterval(timer); } else el.textContent = current + '+';
-                        }, 25);
+                            if (current >= target) {
+                                el.textContent = target + '+';
+                                clearInterval(timer);
+                            } else {
+                                el.textContent = current + '+';
+                            }
+                        }, 20);
                     });
                     statsAnimated = true;
                 }
             }
-
-            // ---- Portfolio filter ----
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            const items = document.querySelectorAll('.portfolio-item');
-
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    const filter = this.getAttribute('data-filter');
-                    items.forEach(item => {
-                        const cat = item.getAttribute('data-category');
-                        if (filter === 'all' || cat === filter) {
-                            item.style.display = 'block';
-                            item.style.opacity = '1';
-                        } else {
-                            item.style.opacity = '0';
-                            setTimeout(() => { item.style.display = 'none'; }, 200);
-                        }
-                    });
-                });
-            });
 
             // ---- Testimonial slider ----
             const slides = document.querySelectorAll('.testimonial-slide');
@@ -1120,7 +1150,7 @@
             }
             startAutoSlide();
 
-            // ---- Contact form (simulation) ----
+            // ---- Contact form ----
             const form = document.getElementById('contactForm');
             const msgBox = document.getElementById('formMessage');
 
@@ -1136,7 +1166,7 @@
                     msgBox.innerHTML = '✅ Message envoyé avec succès ! Je vous répondrai rapidement.';
                     msgBox.classList.remove('d-none');
                     btn.innerHTML = '<i class="fas fa-check"></i> Envoyé';
-                    btn.style.background = '#1f8a9c';
+                    btn.style.background = '#2a7f8a';
                     form.reset();
                     setTimeout(() => {
                         btn.innerHTML = original;
@@ -1159,8 +1189,8 @@
 
             document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-            // ---- Initial skills animation trigger ----
-            setTimeout(animateSkills, 400);
+            // ---- Initial stats trigger ----
+            setTimeout(animateStats, 400);
 
         })();
     </script>
