@@ -245,7 +245,7 @@
             font-weight: 500;
         }
 
-       /* Style photo inspiré de la landing page */
+      /* Style photo inspiré de la landing page */
 .hero-image-wrapper {
     position: relative;
     flex-shrink: 0;
@@ -260,20 +260,19 @@
     padding: 6px;
     box-shadow: 0 8px 30px rgba(42,127,138,0.15);
     display: flex;
-    align-items: flex-end; /* Aligne l'image en bas du cercle */
+    align-items: center; /* Centre l'image verticalement */
     justify-content: center;
     overflow: hidden;
 }
 
 .hero-image-wrapper .profile-ring .profile-image {
-   width: 380px;
-    height: 380px;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    object-position: top center; /* Ajuste la position de l'image vers le haut pour que le visage reste visible */
+    object-position: center 30%; /* Ajuste pour centrer le visage (30% depuis le haut) */
     border: 4px solid white;
     background: white;
-    margin-bottom: -5px; /* Décale l'image vers le bas dans le conteneur */
 }
 
 /* Ajustement pour les écrans plus petits */
@@ -282,20 +281,12 @@
         width: 260px;
         height: 260px;
     }
-    .hero-image-wrapper .profile-ring .profile-image {
-        height: 94%;
-        margin-bottom: -3px;
-    }
 }
 
 @media (max-width: 576px) {
     .hero-image-wrapper .profile-ring {
         width: 200px;
         height: 200px;
-    }
-    .hero-image-wrapper .profile-ring .profile-image {
-        height: 93%;
-        margin-bottom: -2px;
     }
 }
 
